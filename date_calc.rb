@@ -7,46 +7,37 @@ month = 0
 year = 0 
 
 loop do
-  puts 'Введите День. Введите целое число не равное нулю.'
+  puts 'Введите День. Введите целое число не равное нулю и меньшее 31.'
   day_input = gets.chomp
-  puts "day_input.to_i == day_input.to_f #{day_input.to_i == day_input.to_f}"
-  puts "day_input.to_i #{day_input.to_i}"
-  puts "day_input.to_f #{day_input.to_f}"
-  if day_input.to_i == 0
-   puts 'Вы ввели символы или ноль. Повторите вводит и введите целое число'
-  elsif day_input.to_i == day_input.to_f
-    day = day_input.to_i 
+  if day_input.to_i > 0 && day_input.scan(/^-?[0-9]+$/).any? && day_input.to_i <= 31 && !day_input.scan(/[.]+/).any?
+    day = day_input.to_i
     break
   else
-    puts "Вы ввели число с плавающей точкой. Повторите вводит и введите целое число"
+    puts 'Вы ввели не целое число. Повторите вводит и введите целое число.'
   end
 end
 
 loop do
-  puts 'Введите Месяц. Введите целое число не равное нулю.'
+  puts 'Введите Месяц. Введите целое число не равное нулю и меньшее 12.'
   month_input = gets.chomp
-  if month_input.to_i == 0
-   puts 'Вы ввели символы или ноль. Повторите вводит и введите целое число'
-  elsif month_input.to_i == month_input.to_f
-    month = month_input.to_i 
+  if month_input.to_i > 0 && month_input.scan(/^-?[0-9]+$/).any? && month_input.to_i <= 12 && !month_input.scan(/[.]+/).any?
+    month = month_input.to_i
     break
   else
-    puts "Вы ввели число с плавающей точкой. Повторите вводит и введите целое число"
+    puts 'Вы ввели не целое число. Повторите вводит и введите целое число.'
   end
 end
 
 loop do
-  puts 'Введите Год. Введите целое число не равное нулю.'
+  puts 'Введите Год. Введите целое число не равное нулю и меньшее 9999.'
   year_input = gets.chomp
-  if year_input.to_i == 0
-   puts 'Вы ввели символы или ноль. Повторите вводит и введите целое число'
-  elsif year_input.to_i == year_input.to_f
-    year = year_input.to_i 
-    break
+  if year_input.to_i > 0 && year_input.scan(/^-?[0-9]+$/).any? && year_input.to_i <= 9999 && !year_input.scan(/[.]+/).any?
+    year = year_input.to_i
+    break   puts 'Вы ввели символы или ноль. Повторите вводит и введите целое число'
   else
-    puts "Вы ввели число с плавающей точкой. Повторите вводит и введите целое число"
+    puts 'Вы ввели не целое число. Повторите вводит и введите целое число.'
   end
 end
 
-puts day
 puts "Вы ввели сдедующую дату: #{day}.#{month}.#{year}"
+
